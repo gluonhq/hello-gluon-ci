@@ -1,0 +1,44 @@
+name: Windows
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Visual Studio shell
+        uses: egor-tensin/vs-shell@v1
+
+      - name: Setup GraalVM environment
+        uses: DeLaGuardo/setup-graalvm@master
+        with:
+          graalvm-version: 20.3.0.java11
+
+      - name: Make staging directory
+        run: mkdir staging
+
+      - name: Gluon License
+        uses: gluonhq/gluon-build-license@v1
+        with:
+          gluon-license: ${{ secrets.GLUON_LICENSE }}
+
+      - name: Gluon Build
+        run: mvn -Pdesktop client:build client:package
+        env:
+          GRAALVM_HOME: ${{ env.JAVA_HOME }}
+
+      - name: Copy native client to staging
+        run: cp -r target/client/x86_64-windows/HelloGluon.exe staging
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
