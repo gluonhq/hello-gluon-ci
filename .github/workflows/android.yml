@@ -56,6 +56,6 @@ jobs:
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.GLUON_ANDROID_SERVICE_ACCOUNT_JSON }}
-          packageName: com.gluonhq.hello.hellogluonapp
+          packageName: com.gluonhq.samples.hellogluon
           releaseFiles: target/client/aarch64-android/gvm/HelloGluon.apk
           track: beta
