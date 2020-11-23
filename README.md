@@ -66,7 +66,7 @@ Have a look at the [Gluon website](https://gluonhq.com/products/mobile/buy/) for
 
 ## Platforms
 
-The Github action workflows are specified in [.github/workflows](tree/main/.github/workflows) and configured to be triggered on `push`. Depening on your own preference and requirements, this can of course be changed. Please refer to the https://docs.github.com/en/free-pro-team@latest/actions[GitHub Actions documentation] for more information.
+The Github action workflows are specified in [.github/workflows](tree/master/.github/workflows) and configured to be triggered on `push`. Depening on your own preference and requirements, this can of course be changed. Please refer to the https://docs.github.com/en/free-pro-team@latest/actions[GitHub Actions documentation] for more information.
 
 ### Windows
 
