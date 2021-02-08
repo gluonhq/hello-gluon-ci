@@ -19,7 +19,7 @@ jobs:
       - name: Setup GraalVM environment
         uses: DeLaGuardo/setup-graalvm@master
         with:
-          graalvm-version: 20.3.0.java11
+          graalvm-version: 21.0.0.java11
 
       - name: Make staging directory
         run: mkdir staging
