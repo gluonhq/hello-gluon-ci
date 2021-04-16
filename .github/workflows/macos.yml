@@ -9,6 +9,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup Gluon's GraalVM
         uses: gluonhq/setup-graalvm@master
 
