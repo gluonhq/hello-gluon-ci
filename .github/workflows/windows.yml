@@ -18,6 +18,8 @@ jobs:
 
       - name: Setup Gluon's GraalVM
         uses: gluonhq/setup-graalvm@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Make staging directory
         run: mkdir staging
