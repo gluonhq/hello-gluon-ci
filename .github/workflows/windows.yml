@@ -16,10 +16,8 @@ jobs:
       - name: Visual Studio shell
         uses: egor-tensin/vs-shell@v1
 
-      - name: Setup GraalVM environment
-        uses: DeLaGuardo/setup-graalvm@master
-        with:
-          graalvm-version: 21.0.0.java11
+      - name: Setup Gluon's GraalVM
+        uses: gluonhq/setup-graalvm@master
 
       - name: Make staging directory
         run: mkdir staging
@@ -31,8 +29,6 @@ jobs:
 
       - name: Gluon Build
         run: mvn -Pdesktop client:build client:package
-        env:
-          GRAALVM_HOME: ${{ env.JAVA_HOME }}
 
       - name: Copy native client to staging
         run: cp -r target/client/x86_64-windows/HelloGluon.exe staging

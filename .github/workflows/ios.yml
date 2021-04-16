@@ -6,14 +6,12 @@ on:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup GraalVM environment
-        uses: DeLaGuardo/setup-graalvm@master
-        with:
-          graalvm-version: 21.0.0.java11
+      - name: Setup Gluon's GraalVM
+        uses: gluonhq/setup-graalvm@master
 
       - uses: Apple-Actions/import-codesign-certs@v1
         with:
@@ -34,8 +32,6 @@ jobs:
 
       - name: Gluon Build
         run: mvn -Pios client:build client:package
-        env:
-          GRAALVM_HOME: ${{ env.JAVA_HOME }}
 
       - uses: Apple-Actions/upload-testflight-build@master
         with:
