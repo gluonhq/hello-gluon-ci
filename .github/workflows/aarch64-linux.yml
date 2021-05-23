@@ -29,7 +29,7 @@ jobs:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
       - name: Gluon Build
-        run: mvn -Pdesktop client:build client:package
+        run: mvn -Ppi client:build client:package
 
       - name: Copy native client to staging
         run: cp -r target/client/aarch64-linux/HelloGluon* staging
