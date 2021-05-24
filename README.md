@@ -13,6 +13,7 @@ This sample focusses on the continuous integration using Github Actions on these
 * Linux
 * iOS
 * Android
+* Embedded - AArch64 Linux
 
 All these platform specific workflows share these common steps:
 
@@ -108,3 +109,10 @@ The Github action workflows are specified in [.github/workflows](https://github.
 * Workflow file: [.github/workflows/android.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/android.yml)
 * Detailed documentation: [Gluon documentation for Android](https://docs.gluonhq.com/#platforms_android) for more detailed information.
 
+
+### Embedded - AArch64 Linux
+
+![AArch64 Linux](https://github.com/gluonhq/hello-gluon-ci/workflows/aarch64-linux/badge.svg)
+
+* Workflow file: [.github/workflows/aarch64-linux.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/aarch64-linux.yml)
+* Detailed documentation: [Gluon documentation for Embedded - AArch64 Linux](https://docs.gluonhq.com/#platforms_embedded) for more detailed information.
