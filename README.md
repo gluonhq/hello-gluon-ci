@@ -6,7 +6,7 @@ This sample shows how to automatically build a Gluon Application using Github Ac
 It uses a version of [HelloGluon](https://github.com/gluonhq/gluon-samples/tree/master/HelloGluon), a Hello World application with Java 11+, JavaFX 15+, Gluon Mobile and GraalVM.
 For more details about Gluon Applications in general, please have a look at the [Gluon docs](https://docs.gluonhq.com) or the [other samples](https://gluonhq.com/developers/samples/). 
 
-This sample focusses on the continuous integration using Github Actions on these platforms:
+This sample focuses on the continuous integration using Github Actions on these platforms:
 
 * Windows
 * MacOS
@@ -25,13 +25,14 @@ All these platform specific workflows share these common steps:
 Next to the above steps, for iOS and Android, the workflow includes steps to properly sign and upload the binary to the Play Store and App Store.
 
 
-
 ## Build setup
 
 Building using Github Actions is not very different from building locally.
 
-On top of a [default Gluon application](https://docs.gluonhq.com/#_getting_started), the following `releaseConfiguration` was added to the maven-client-plugin configuration:
+On top of a [default Gluon application](https://docs.gluonhq.com/#_getting_started), the following `releaseConfiguration` was added to the maven-gluonfx-plugin configuration:
 
+```
+<configuration>
     <releaseConfiguration>
         <!-- for iOS -->
         <bundleVersion>${env.GITHUB_RUN_NUMBER}</bundleVersion>
@@ -43,7 +44,8 @@ On top of a [default Gluon application](https://docs.gluonhq.com/#_getting_start
         <providedKeyAlias>${env.GLUON_ANDROID_KEYALIAS}</providedKeyAlias>
         <providedKeyAliasPassword>${env.GLUON_ANDROID_KEYALIAS_PASSWORD}</providedKeyAliasPassword>
     </releaseConfiguration>
-  </configuration>
+</configuration>
+```
 
 For iOS:
 * bundleVersion is set to the GITHUB_RUN_NUMBER, so each build will have unique CFBundleVersion. [See this doc](https://docs.gluonhq.com/#platforms_ios_distribution_build) for more information.
@@ -67,52 +69,47 @@ Have a look at the [Gluon website](https://gluonhq.com/products/mobile/buy/) for
 
 ## Platforms
 
-The Github action workflows are specified in [.github/workflows](https://github.com/gluonhq/hello-gluon-ci/tree/master/.github/workflows) and configured to be triggered on `push`. Depening on your own preference and requirements, this can of course be changed. Please refer to the https://docs.github.com/en/free-pro-team@latest/actions[GitHub Actions documentation] for more information.
+Github Action workflows are specified in [.github/workflows](https://github.com/gluonhq/hello-gluon-ci/tree/master/.github/workflows) and configured to be triggered on `push`.
+Depending on your own preference and requirements, this can of course be changed. Please refer to the [GitHub Actions documentation](https://docs.github.com/en/free-pro-team@latest/actions) for more information.
 
 ### Windows
 
-![Windows](https://github.com/gluonhq/hello-gluon-ci/workflows/Windows/badge.svg)
+[![Windows](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/windows.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/windows.yml)
 
 * Workflow file: [.github/workflows/windows.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/windows.yml)
 * Detailed documentation: [Gluon documentation for Windows](https://docs.gluonhq.com/#platforms_windows) for more detailed information.
 
 ### MacOS
 
-![MacOS](https://github.com/gluonhq/hello-gluon-ci/workflows/MacOS/badge.svg)
+[![MacOS](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos.yml)
 
 * Workflow file: [.github/workflows/macos.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/macos.yml)
 * Detailed documentation: [Gluon documentation for Mac OS](https://docs.gluonhq.com/#platforms_macos) for more detailed information.
 
-
-
 ### Linux
 
-![Linux](https://github.com/gluonhq/hello-gluon-ci/workflows/Linux/badge.svg)
+[![Linux](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/linux.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/linux.yml)
 
 * Workflow file: [.github/workflows/linux.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/linux.yml)
 * Detailed documentation: [Gluon documentation for Linux](https://docs.gluonhq.com/#platforms_linux) for more detailed information.
 
-          
-          
 ### iOS
 
-![iOS](https://github.com/gluonhq/hello-gluon-ci/workflows/iOS/badge.svg)
+[![iOS](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/ios.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/ios.yml)
 
 * Workflow file: [.github/workflows/ios.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/ios.yml)
 * Detailed documentation: [Gluon documentation for iOS](https://docs.gluonhq.com/#platforms_ios) for more detailed information.
 
-
 ### Android
 
-![Android](https://github.com/gluonhq/hello-gluon-ci/workflows/Android/badge.svg)
+[![Android](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/android.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/android.yml)
 
 * Workflow file: [.github/workflows/android.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/android.yml)
 * Detailed documentation: [Gluon documentation for Android](https://docs.gluonhq.com/#platforms_android) for more detailed information.
 
-
 ### Embedded - AArch64 Linux
 
-![AArch64 Linux](https://github.com/gluonhq/hello-gluon-ci/workflows/aarch64-linux/badge.svg)
+[![AArch64 Linux](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/aarch64-linux.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/aarch64-linux.yml)
 
 * Workflow file: [.github/workflows/aarch64-linux.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/aarch64-linux.yml)
 * Detailed documentation: [Gluon documentation for Embedded - AArch64 Linux](https://docs.gluonhq.com/#platforms_embedded) for more detailed information.

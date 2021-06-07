@@ -27,10 +27,10 @@ jobs:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
       - name: Gluon Build
-        run: mvn -Pdesktop client:build client:package
+        run: mvn -Pdesktop gluonfx:build gluonfx:package
 
-      - name: Copy native client to staging
-        run: cp -r target/client/x86_64-linux/HelloGluon* staging
+      - name: Copy native image to staging
+        run: cp -r target/gluonfx/x86_64-linux/HelloGluon* staging
 
       - name: Upload
         uses: actions/upload-artifact@v2
