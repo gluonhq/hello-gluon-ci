@@ -31,7 +31,7 @@ jobs:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
       - name: Gluon Build
-        run: mvn -Pandroid client:build client:package
+        run: mvn -Pandroid gluonfx:build gluonfx:package
         env:
           GLUON_ANDROID_KEYSTOREPATH: ${{ steps.android_keystore_file.outputs.filePath }}
           GLUON_ANDROID_KEYSTORE_PASSWORD: ${{ secrets.GLUON_ANDROID_KEYSTORE_PASSWORD }}
@@ -41,8 +41,8 @@ jobs:
       - name: Make staging directory
         run: mkdir staging
 
-      - name: Copy native clients to staging
-        run: cp -r target/client/aarch64-android/gvm/*.apk staging
+      - name: Copy native image to staging
+        run: cp -r target/gluonfx/aarch64-android/gvm/*.apk staging
 
       - name: Upload
         uses: actions/upload-artifact@v2
@@ -56,5 +56,5 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.GLUON_ANDROID_SERVICE_ACCOUNT_JSON }}
           packageName: com.gluonhq.samples.hellogluon
-          releaseFiles: target/client/aarch64-android/gvm/HelloGluon.apk
+          releaseFiles: target/gluonfx/aarch64-android/gvm/HelloGluon.apk
           track: beta
