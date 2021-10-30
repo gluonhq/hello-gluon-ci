@@ -12,14 +12,15 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <javafx.version>16</javafx.version>
+        <javafx.version>17.0.1</javafx.version>
         <charm.version>6.0.6</charm.version>
         <glisten.afterburner.version>2.0.5</glisten.afterburner.version>
-        <attach.version>4.0.12</attach.version>
+        <attach.version>4.0.13</attach.version>
         <connect.version>2.0.1</connect.version>
-        <javafx.maven.plugin.version>0.0.6</javafx.maven.plugin.version>
+        <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
         <gluonfx.maven.plugin.version>1.0.8</gluonfx.maven.plugin.version>
         <main.class>com.gluonhq.hello.HelloGluonApp</main.class>
+        <app.identifier>com.gluonhq.samples.hellogluon</app.identifier>
     </properties>
 
     <dependencies>
@@ -109,6 +110,7 @@
                         <list>storage</list>
                     </attachList>
                     <mainClass>${main.class}</mainClass>
+                    <appIdentifier>${app.identifier}</appIdentifier>
                     <releaseConfiguration>
                         <!-- for iOS -->
                         <bundleVersion>${env.GITHUB_RUN_NUMBER}</bundleVersion>
@@ -161,6 +163,7 @@
             <id>ios</id>
             <properties>
                 <gluonfx.target>ios</gluonfx.target>
+                <app.identifier>com.gluonhq.hello.HelloGluonApp</app.identifier>
             </properties>
         </profile>
         <profile>
