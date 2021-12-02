@@ -14,6 +14,11 @@ jobs:
         uses: gluonhq/setup-graalvm@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - uses: Apple-Actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ secrets.GLUON_MACOS_CERTIFICATES_FILE_BASE64 }}
+          p12-password: ${{ secrets.GLUON_MACOS_CERTIFICATES_PASSWORD }}          
 
       - name: Make staging directory
         run: mkdir staging
