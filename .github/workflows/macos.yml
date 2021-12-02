@@ -29,14 +29,24 @@ jobs:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
       - name: Gluon Build
-        run: mvn -Pdesktop gluonfx:build gluonfx:package
+        id: outputfile
+        run: |
+          mvn -Pdesktop gluonfx:build gluonfx:package
+          echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
 
-      - name: Copy native image to staging
-        run: cp -r target/gluonfx/x86_64-darwin/HelloGluon* staging
+      - name: Notarize Installer
+        uses: erwin1/xcode-notarize@main
+        with:
+          product-path: ${{ steps.outputfile.outputs.path }}
+          appstore-connect-username: ${{ secrets.NOTARIZATION_USERNAME }}
+          appstore-connect-password: ${{ secrets.NOTARIZATION_PASSWORD }}
+          primary-bundle-id: com.gluonhq.samples.hellogluon
+          asc-provider: ${{ secrets.GLUON_MACSIGN_PREFIX }}
+          verbose: false
 
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
           name: Package
-          path: staging
+          path: ${{ steps.outputfile.outputs.path }}
 
