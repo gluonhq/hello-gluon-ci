@@ -28,10 +28,10 @@ jobs:
         with:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
-      - name: Gluon Build
+      - name: Gluon Build and Package
         id: outputfile
         run: |
-          mvn -Pdesktop gluonfx:build gluonfx:package
+          mvn -Pdesktop,mac gluonfx:build gluonfx:package
           echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Notarize Installer
@@ -40,11 +40,11 @@ jobs:
           product-path: ${{ steps.outputfile.outputs.path }}
           appstore-connect-username: ${{ secrets.NOTARIZATION_USERNAME }}
           appstore-connect-password: ${{ secrets.NOTARIZATION_PASSWORD }}
-          primary-bundle-id: com.gluonhq.samples.hellogluon
+          primary-bundle-id: com.gluonhq.hello.HelloGluonApp
           asc-provider: ${{ secrets.GLUON_MACSIGN_PREFIX }}
           verbose: false
 
-      - name: Upload
+      - name: Upload (pkg)
         uses: actions/upload-artifact@v2
         with:
           name: Package
