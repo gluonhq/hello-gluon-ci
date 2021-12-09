@@ -50,3 +50,21 @@ jobs:
           name: Package
           path: ${{ steps.outputfile.outputs.path }}
 
+      - uses: Apple-Actions/download-provisioning-profiles@v1
+        with:
+          bundle-id: com.gluonhq.hello.HelloGluonApp
+          issuer-id: ${{ secrets.GLUON_IOS_APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.GLUON_IOS_APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.GLUON_IOS_APPSTORE_PRIVATE_KEY }}
+
+      - name: Gluon Package Store
+        id: outputfile
+        run: |
+          mvn -Pdesktop,macstore gluonfx:package
+          echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
+
+      - name: Upload (pkg store)
+        uses: actions/upload-artifact@v2
+        with:
+          name: PackageAppStore
+          path: ${{ steps.outputfile.outputs.path }}
