@@ -87,3 +87,11 @@ jobs:
         with:
           name: PackageAppStore
           path: ${{ steps.outputfilestore.outputs.path }}
+
+      - name: Upload App Store TestFlight
+        uses: Apple-Actions/upload-testflight-build@master
+        with:
+          app-path: ${{ steps.outputfilestore.outputs.path }}
+          issuer-id: ${{ secrets.GLUON_IOS_APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.GLUON_IOS_APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.GLUON_IOS_APPSTORE_PRIVATE_KEY }}
