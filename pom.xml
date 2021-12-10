@@ -138,6 +138,15 @@
 
     <profiles>
         <profile>
+            <id>desktop</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <gluonfx.target>host</gluonfx.target>
+            </properties>
+        </profile>
+        <profile>
             <id>mac</id>
             <properties>
                 <mac.app.store>false</mac.app.store>
