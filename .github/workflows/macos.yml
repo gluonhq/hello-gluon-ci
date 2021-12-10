@@ -54,12 +54,18 @@ jobs:
           path: ${{ steps.outputfile.outputs.path }}
 
       - name: Provisioning Profile
-        uses: Apple-Actions/download-provisioning-profiles@v1
+        id: provisioning
+        uses: Apple-Actions/download-provisioning-profiles@v1.0.1
         with:
           bundle-id: com.gluonhq.hello.HelloGluonApp
+          profile-type: 'MAC_APP_STORE'
           issuer-id: ${{ secrets.GLUON_IOS_APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.GLUON_IOS_APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.GLUON_IOS_APPSTORE_PRIVATE_KEY }}
+
+      - name: Rename profiles
+        run: |
+          find /Users/runner/Library/MobileDevice -name '*.mobileprovision' -exec sh -c 'mv "$0" "${0%.mobileprovision}.provisionprofile"' {} \;
 
       - name: 3rd Party Mac certificate
         uses: Apple-Actions/import-codesign-certs@v1
