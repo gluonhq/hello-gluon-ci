@@ -92,6 +92,7 @@ jobs:
         uses: Apple-Actions/upload-testflight-build@master
         with:
           app-path: ${{ steps.outputfilestore.outputs.path }}
+          app-type: osx
           issuer-id: ${{ secrets.GLUON_IOS_APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.GLUON_IOS_APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.GLUON_IOS_APPSTORE_PRIVATE_KEY }}
