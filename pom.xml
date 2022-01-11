@@ -20,6 +20,7 @@
         <gluonfx.maven.plugin.version>1.0.11</gluonfx.maven.plugin.version>
         <main.class>com.gluonhq.hello.HelloGluonApp</main.class>
         <app.identifier>${main.class}</app.identifier>
+        <app.description>The HelloGluon app</app.description>
         <package.type/>
         <mac.app.store/>
         <mac.signing.user.name/>
@@ -122,6 +123,7 @@
                     <appIdentifier>${app.identifier}</appIdentifier>
                     <releaseConfiguration>
                         <vendor>Gluon</vendor>
+                        <appDescription>${app.description}</appDescription>
                         <packageType>${package.type}</packageType>
                         <!-- for macOS/iOS -->
                         <macAppStore>${mac.app.store}</macAppStore>
