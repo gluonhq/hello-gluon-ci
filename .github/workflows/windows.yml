@@ -35,7 +35,7 @@ jobs:
       - name: Copy native bundles to staging
         run: |
           cp -r target/gluonfx/x86_64-windows/HelloGluon.exe staging
-          cp -r target/gluonfx/x86_64-windows/HelloGluon-1.0.0.msi staging
+          cp -r target/gluonfx/x86_64-windows/HelloGluon-1.0.msi staging
 
       - name: Upload
         uses: actions/upload-artifact@v2
