@@ -123,7 +123,7 @@
                     <appIdentifier>${app.identifier}</appIdentifier>
                     <releaseConfiguration>
                         <vendor>Gluon</vendor>
-                        <appDescription>${app.description}</appDescription>
+                        <description>${app.description}</description>
                         <packageType>${package.type}</packageType>
                         <!-- for macOS/iOS -->
                         <macAppStore>${mac.app.store}</macAppStore>
