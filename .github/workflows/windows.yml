@@ -29,6 +29,11 @@ jobs:
         with:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
+      - name: Setup Maven Action
+        uses: s4u/setup-maven-action@v1.7.0
+        with:
+          maven-version: 3.8.8
+
       - name: Gluon Build and Package
         run: mvn -Pdesktop gluonfx:build gluonfx:package
 
