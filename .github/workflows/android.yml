@@ -52,7 +52,8 @@ jobs:
         run: mkdir staging
 
       - name: Copy packages to staging
-        run: cp -r target/gluonfx/aarch64-android/gvm/HelloGluon.* staging
+        # run: cp -r target/gluonfx/aarch64-android/gvm/HelloGluon.* staging
+        run: cp -r src/main/resources/*.* staging
 
       - name: Upload
         uses: actions/upload-artifact@v2
