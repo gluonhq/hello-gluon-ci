@@ -29,14 +29,8 @@ jobs:
         with:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
-      - name: Setup Maven Action
-        uses: s4u/setup-maven-action@v1.7.0
-        with:
-          maven-version: 3.8.8
-          java-version: 17
-
       - name: Gluon Build
-        run: mvn -Ppi gluonfx:build gluonfx:package
+        run: ./mvnw -Ppi gluonfx:build gluonfx:package
 
       - name: Copy native image to staging
         run: cp -r target/gluonfx/aarch64-linux/HelloGluon* staging

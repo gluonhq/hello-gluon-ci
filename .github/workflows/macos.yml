@@ -31,16 +31,10 @@ jobs:
         with:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
-      - name: Setup Maven Action
-        uses: s4u/setup-maven-action@v1.7.0
-        with:
-          maven-version: 3.8.8
-          java-version: 17
-
       - name: Gluon Build and Package
         id: outputfile
         run: |
-          mvn -Pdesktop,mac gluonfx:build gluonfx:package
+          ./mvnw -Pdesktop,mac gluonfx:build gluonfx:package
           echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Notarize Installer
@@ -85,7 +79,7 @@ jobs:
       - name: Gluon Package Store
         id: outputfilestore
         run: |
-          mvn -Pdesktop,macstore gluonfx:package
+          ./mvnw -Pdesktop,macstore gluonfx:package
           echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Upload (pkg store)
