@@ -38,14 +38,12 @@ jobs:
           echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Notarize Installer
-        uses: erwin1/xcode-notarize@main
+        uses: erwin1/xcode-notarizer@v1
         with:
           product-path: ${{ steps.outputfile.outputs.path }}
-          appstore-connect-username: ${{ secrets.NOTARIZATION_USERNAME }}
-          appstore-connect-password: ${{ secrets.NOTARIZATION_PASSWORD }}
-          primary-bundle-id: com.gluonhq.hello.HelloGluonApp
-          asc-provider: ${{ secrets.GLUON_MACSIGN_PREFIX }}
-          verbose: false
+          apple-id: ${{ secrets.NOTARIZATION_USERNAME }}
+          app-password: ${{ secrets.NOTARIZATION_PASSWORD }}
+          team-id: ${{ secrets.GLUON_MACSIGN_PREFIX }}
 
       - name: Upload (pkg)
         uses: actions/upload-artifact@v2
