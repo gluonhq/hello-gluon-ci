@@ -34,7 +34,7 @@ jobs:
       - name: Gluon Build and Package
         id: outputfile
         run: |
-          ./mvnw -X -Pdesktop,mac gluonfx:build gluonfx:package
+          ./mvnw -Pdesktop,mac gluonfx:build gluonfx:package
           echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Notarize Installer
