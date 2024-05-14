@@ -49,6 +49,12 @@
             <artifactId>display</artifactId>
             <version>${attach.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.projectreactor.netty</groupId>
+            <artifactId>reactor-netty</artifactId>
+            <version>1.1.13</version>
+        </dependency>
         <dependency>
             <groupId>com.gluonhq.attach</groupId>
             <artifactId>lifecycle</artifactId>
