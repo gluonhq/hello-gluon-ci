@@ -12,8 +12,9 @@ jobs:
 
       - name: Setup Gluon's GraalVM
         uses: gluonhq/setup-graalvm@master
-        env:
+        with:
           arch: 'aarch64'
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Developer ID Application certificate
