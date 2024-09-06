@@ -1,4 +1,4 @@
-name: macOS
+name: macOS x86_64
 
 on:
   push:
@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Gluon's GraalVM
         uses: gluonhq/setup-graalvm@master
@@ -81,12 +81,14 @@ jobs:
           echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Upload (pkg store)
+        if: false # only upload aarch64 version
         uses: actions/upload-artifact@v2
         with:
           name: PackageAppStore
           path: ${{ steps.outputfilestore.outputs.path }}
 
       - name: Upload App Store TestFlight
+        if: false # only upload aarch64 version
         uses: Apple-Actions/upload-testflight-build@master
         with:
           app-path: ${{ steps.outputfilestore.outputs.path }}
