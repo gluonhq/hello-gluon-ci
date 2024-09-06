@@ -8,11 +8,12 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Gluon's GraalVM
         uses: gluonhq/setup-graalvm@master
         env:
+          arch: 'aarch64'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Developer ID Application certificate
@@ -35,7 +36,7 @@ jobs:
         id: outputfile
         run: |
           ./mvnw -Pdesktop,mac gluonfx:build gluonfx:package
-          echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
+          echo ::set-output name=path::target/gluonfx/aarch64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Notarize Installer
         uses: erwin1/xcode-notarizer@v1
@@ -78,7 +79,7 @@ jobs:
         id: outputfilestore
         run: |
           ./mvnw -Pdesktop,macstore gluonfx:package
-          echo ::set-output name=path::target/gluonfx/x86_64-darwin/HelloGluon-1.0.0.pkg
+          echo ::set-output name=path::target/gluonfx/aarch64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Upload (pkg store)
         uses: actions/upload-artifact@v2
