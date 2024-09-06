@@ -3,16 +3,16 @@
 
 This sample shows how to automatically build a Gluon Application using Github Actions.
 
-It uses a version of [HelloGluon](https://github.com/gluonhq/gluon-samples/tree/master/HelloGluon), a Hello World application with Java 11+, JavaFX 15+, Gluon Mobile and GraalVM.
+It uses a version of [HelloGluon](https://github.com/gluonhq/gluon-samples/tree/master/HelloGluon), a Hello World application with Java 23, JavaFX 24ea, Gluon Mobile and GraalVM.
 For more details about Gluon Applications in general, please have a look at the [Gluon docs](https://docs.gluonhq.com) or the [other samples](https://gluonhq.com/developers/samples/). 
 
 This sample focuses on the continuous integration using Github Actions on these platforms:
 
-* Windows
-* MacOS
 * Linux
+* MacOS (x86_64 and AArch64)
 * iOS
 * Android
+* Windows
 * Embedded - AArch64 Linux
 
 All these platform specific workflows share these common steps:
@@ -81,9 +81,14 @@ Depending on your own preference and requirements, this can of course be changed
 
 ### MacOS
 
-[![MacOS](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos.yml)
+[![MacOS x86_64](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos-x86_64.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos-x86_64.yml)
 
-* Workflow file: [.github/workflows/macos.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/macos.yml)
+* Workflow file: [.github/workflows/macos-x86_64.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/macos-x86_64.yml)
+
+[![MacOS AArch64](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos-aarch64.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos-aarch64.yml)
+
+* Workflow file: [.github/workflows/macos-aarc64.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/macos-aarch64.yml)
+
 * Detailed documentation: [Gluon documentation for Mac OS](https://docs.gluonhq.com/#platforms_macos) for more detailed information.
 
 ### Linux
