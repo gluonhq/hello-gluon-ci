@@ -12,8 +12,9 @@ This sample focuses on the continuous integration using Github Actions on these 
 * MacOS (x86_64 and AArch64)
 * iOS
 * Android
-* Windows
-* Embedded - AArch64 Linux
+  
+* Windows (not supported with latest 1.0.24 yet)
+* Embedded - AArch64 Linux (not supported with latest 1.0.24 yet)
 
 All these platform specific workflows share these common steps:
 
