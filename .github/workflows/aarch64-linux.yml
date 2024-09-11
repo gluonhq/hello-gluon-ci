@@ -36,7 +36,7 @@ jobs:
         run: cp -r target/gluonfx/aarch64-linux/HelloGluon* staging
 
       - name: Upload
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Package
           path: staging
