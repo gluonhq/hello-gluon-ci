@@ -73,13 +73,6 @@ Have a look at the [Gluon website](https://gluonhq.com/products/mobile/buy/) for
 Github Action workflows are specified in [.github/workflows](https://github.com/gluonhq/hello-gluon-ci/tree/master/.github/workflows) and configured to be triggered on `push`.
 Depending on your own preference and requirements, this can of course be changed. Please refer to the [GitHub Actions documentation](https://docs.github.com/en/free-pro-team@latest/actions) for more information.
 
-### Windows
-
-[![Windows](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/windows.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/windows.yml)
-
-* Workflow file: [.github/workflows/windows.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/windows.yml)
-* Detailed documentation: [Gluon documentation for Windows](https://docs.gluonhq.com/#platforms_windows) for more detailed information.
-
 ### MacOS
 
 [![MacOS x86_64](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos-x86_64.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/macos-x86_64.yml)
@@ -112,6 +105,13 @@ Depending on your own preference and requirements, this can of course be changed
 
 * Workflow file: [.github/workflows/android.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/android.yml)
 * Detailed documentation: [Gluon documentation for Android](https://docs.gluonhq.com/#platforms_android) for more detailed information.
+
+### Windows
+
+[![Windows](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/windows.yml/badge.svg)](https://github.com/gluonhq/hello-gluon-ci/actions/workflows/windows.yml)
+
+* Workflow file: [.github/workflows/windows.yml](https://github.com/gluonhq/hello-gluon-ci/blob/master/.github/workflows/windows.yml)
+* Detailed documentation: [Gluon documentation for Windows](https://docs.gluonhq.com/#platforms_windows) for more detailed information.
 
 ### Embedded - AArch64 Linux
 
