@@ -156,7 +156,7 @@
             <properties>
                 <package.type>pkg</package.type>
                 <mac.app.store>false</mac.app.store>
-                <bundle.version>${env.GITHUB_RUN_NUMBER}</bundle.version>
+                <bundle.version>2.${env.GITHUB_RUN_NUMBER}</bundle.version>
                 <bundle.short.version>1.0</bundle.short.version>
             </properties>
         </profile>
@@ -165,7 +165,7 @@
             <properties>
                 <package.type>pkg</package.type>
                 <mac.app.store>true</mac.app.store>
-                <bundle.version>1.${env.GITHUB_RUN_NUMBER}</bundle.version>
+                <bundle.version>2.${env.GITHUB_RUN_NUMBER}</bundle.version>
                 <bundle.short.version>1.6</bundle.short.version>
             </properties>
         </profile>
