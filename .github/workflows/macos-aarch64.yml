@@ -83,7 +83,7 @@ jobs:
           echo ::set-output name=path::target/gluonfx/aarch64-darwin/HelloGluon-1.0.0.pkg
 
       - name: Upload (pkg store)
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: PackageAppStore
           path: ${{ steps.outputfilestore.outputs.path }}
