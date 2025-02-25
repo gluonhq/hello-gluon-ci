@@ -11,8 +11,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
-        <javafx.version>24-ea+5</javafx.version>
+        <maven.compiler.release>11</maven.compiler.release>
+        <javafx.version>22.0.2</javafx.version>
         <charm.version>6.2.3</charm.version>
         <attach.version>4.0.21</attach.version>
         <connect.version>2.0.1</connect.version>
