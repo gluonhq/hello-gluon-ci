@@ -14,6 +14,9 @@ jobs:
         uses: gluonhq/setup-graalvm@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          graalvm: '22.1.0.1-Final'
+          jdk: 'java17'
           
       - name: Developer ID Application certificate
         uses: Apple-Actions/import-codesign-certs@v1
