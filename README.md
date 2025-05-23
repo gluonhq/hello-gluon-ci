@@ -3,7 +3,7 @@
 
 This sample shows how to automatically build a Gluon Application using Github Actions.
 
-It uses a version of [HelloGluon](https://github.com/gluonhq/gluon-samples/tree/master/HelloGluon), a Hello World application with Java 23, JavaFX 24ea, Gluon Mobile and GraalVM.
+It uses a version of [HelloGluon](https://github.com/gluonhq/gluon-samples/tree/master/HelloGluon), a Hello World application with Java 17, JavaFX 21ea, Gluon Mobile and GraalVM.
 For more details about Gluon Applications in general, please have a look at the [Gluon docs](https://docs.gluonhq.com) or the [other samples](https://gluonhq.com/developers/samples/). 
 
 This sample focuses on the continuous integration using Github Actions on these platforms:
@@ -12,9 +12,8 @@ This sample focuses on the continuous integration using Github Actions on these 
 * MacOS (x86_64 and AArch64)
 * iOS
 * Android
-  
-* Windows (not supported with latest 1.0.24 yet)
-* Embedded - AArch64 Linux (not supported with latest 1.0.24 yet)
+* Windows
+* Embedded - AArch64 Linux
 
 All these platform specific workflows share these common steps:
 
