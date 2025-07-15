@@ -73,9 +73,10 @@ jobs:
 
 
       - name: Upload to Google Play
-        uses: r0adkll/upload-google-play@v1.1.1
+        uses: r0adkll/upload-google-play@v1.1.3
         with:
           serviceAccountJsonPlainText: ${{ secrets.GLUON_ANDROID_SERVICE_ACCOUNT_JSON }}
           packageName: com.gluonhq.samples.hellogluon
           releaseFiles: target/gluonfx/aarch64-android/gvm/HelloGluon.aab
+          debugSymbols: target/gluonfx/aarch64-android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib
           track: beta
