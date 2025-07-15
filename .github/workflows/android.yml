@@ -78,5 +78,5 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.GLUON_ANDROID_SERVICE_ACCOUNT_JSON }}
           packageName: com.gluonhq.samples.hellogluon
           releaseFiles: target/gluonfx/aarch64-android/gvm/HelloGluon.aab
-          debugSymbols: target/gluonfx/aarch64-android/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib
+          debugSymbols: target/gluonfx/aarch64-android/gvm/android_project/app/build/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib
           track: beta
